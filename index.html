@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Curriculum Vitae de Tania Vargas</title>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<link rel="stylesheet" type="cv2023/css" href="estilos.css" />
+	<style>
+      body {
+        background-color: black;
+      }
+
+      h1,h2,li,strong {
+        color: orange;
+        margin-left: 20px;
+      }
+    </style>
+	</head>
+	<body>
+
+		<h1 id="title"></h1>
+
+		<h2>Datos personales</h2>
+		<ul>
+			<li> Nombre completo:  <strong id="nombre"></strong></li>
+			<li> Edad:  <strong id="edad"></strong></li>
+			<li> Genero:  <strong id="genero"></strong></li>
+			<li> Telefono:  <strong id="telefono"></strong></li>
+		</ul>
+
+		<h2>Formación académica</h2>
+		<ul>
+			<li>2007-2014: <strong>Universidad Tecnologica Nacional</strong></li>
+			<li>1997-2002: <strong>Enet N° 1</strong></li>
+			<li>1989-1996:  <strong>Escuela Primaria N° 86</strong></li>
+		</ul>
+
+		<h2>Experiencia laboral</h2>
+		<ul>
+			<li>2020-2022: <strong>En el pony pisador</strong></li>
+			<li>2023-2023: <strong>Profesor en howarts</strong></li>
+		</ul>
+		<script>
+			var dato = datos();
+			function datos()
+			{
+				$.ajax({
+				  url: 'https://randomuser.me/api/',
+				  dataType: 'json',
+				  success: function(data) {
+				    console.log(data);
+					console.log(data.results[0].name.first);				   
+				    mostrar(data);
+				  }
+				});					
+			};
+			function mostrar(data) {
+				document.getElementById("title").innerHTML = "Curriculum Vitae de " + data.results[0].name.first;
+				    console.log(data.results[0].name.first);
+			    document.getElementById("nombre").innerHTML = data.results[0].name.first + " " + data.results[0].name.last;
+			    document.getElementById("edad").innerHTML = data.results[0].dob.age;
+			    document.getElementById("genero").innerHTML = data.results[0].gender;
+			    document.getElementById("telefono").innerHTML = data.results[0].phone;
+			}
+		</script>
+	</body>
+</html>
