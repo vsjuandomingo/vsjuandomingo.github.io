@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Curriculum Vitae de Tania Vargas</title>
+	<title>Curriculum Vitae de Juan Domingo Vargas</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400&display=swap" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/estilos.css" />
@@ -18,36 +21,42 @@
     </style>
 	</head>
 	<body>
-			<h1 id="title"></h1>
+			
+		
 		<div class="container">
 			<!--<img id="imageee" src="${imag}">-->
-			<section >
-				<h2>Datos personales</h2>
-				<ul>
-					<li> Nombre completo:  <strong id="nombre"></strong></li>
-					<li> Edad:  <strong id="edad"></strong></li>
-					<li> Genero:  <strong id="genero"></strong></li>
-					<li> Telefono:  <strong id="telefono"></strong></li>
-					<li> Email:  <strong id="email"></strong></li>
-				</ul>	
-			</section>
-			
-			<section>
+			<h1 id="titulo"></h1>
+			<div class="row align-items-end">
+				<div class="col-4">
+					<h2>Datos personales</h2>
+					<ul>
+						<li> Nombre completo:  <strong id="nombre"></strong></li>
+						<li> Edad:  <strong id="edad"></strong></li>
+						<li> Genero:  <strong id="genero"></strong></li>
+						<li> Ubicación:  <strong id="lugar"></strong></li>
+						<li> Telefono:  <strong id="telefono"></strong></li>
+						<li> Email:  <strong id="email"></strong></li>
+					</ul>	
+				</div>
+				
+				<div class="col-4">
 					<h2>Formación académica</h2>
 					<ul>
-						<li>2007-2014: <strong>Universidad Tecnologica Nacional</strong></li>
-						<li>1997-2002: <strong>Enet N° 1</strong></li>
-						<li>1989-1996:  <strong>Escuela Primaria N° 86</strong></li>
+						<li>2010-2018: <strong>Universidad Tecnologica Nacional</strong></li>
+						<li>2004-2009: <strong>Enet N° 1</strong></li>
+						<li>1996-2003:  <strong>Escuela Primaria N° 86</strong></li>
 					</ul>	
-			</section>
-			
-			<section>
+				</div>
+				
+				<div class="col-4">
 					<h2>Experiencia laboral </h2>
 					<ul>
 						<li>2020-2022: <strong>En el pony pisador</strong></li>
 						<li>2023-2023: <strong>Profesor en howarts</strong></li>
 					</ul>	
-			</section>	
+				</div>
+			</div>
+				
 		</div>
 		<script>
 			var dato = datos();
@@ -64,13 +73,14 @@
 				});					
 			};
 			function mostrar(data) {
-				document.getElementById("title").innerHTML = "Curriculum Vitae de " + data.results[0].name.first;
+				document.getElementById("titulo").innerHTML = "Curriculum Vitae de " + data.results[0].name.first;
 				    console.log(data.results[0].name.first);
-			    document.getElementById("nombre").innerHTML = data.results[0].name.first + " " + data.results[0].name.last;
+			    document.getElementById("nombre").innerHTML = data.results[0].name.title + " " + data.results[0].name.first + " " + data.results[0].name.last;
 			    document.getElementById("edad").innerHTML = data.results[0].dob.age;
 			    document.getElementById("genero").innerHTML = data.results[0].gender;
 			    document.getElementById("telefono").innerHTML = data.results[0].phone;
 			    document.getElementById("email").innerHTML = data.results[0].email;
+				document.getElementById("lugar").innerHTML = data.results[0].location.city + " " + data.results[0].location.country;
 			    //document.getElementById("imag").innerHTML = data.results[0].picture.large;
 			    var imag = data.results[0].picture.large;
 			    console.log(imag);
