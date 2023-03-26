@@ -9,6 +9,9 @@
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/estilos.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 	<style>
       /*body {
         background-color: black;
@@ -27,8 +30,9 @@
 			<!--<img id="imageee" src="${imag}">-->
 			<h1 id="titulo"></h1>
 			<div class="row align-items-end">
+				<div class="col-12 text-center" id="imagen"></div>
 				<div class="col-4">
-					<h2>Datos personales</h2>
+					<h2>DATOS PERSONALES</h2>
 					<ul>
 						<li> Nombre completo:  <strong id="nombre"></strong></li>
 						<li> Edad:  <strong id="edad"></strong></li>
@@ -40,7 +44,7 @@
 				</div>
 				
 				<div class="col-4">
-					<h2>Formación académica</h2>
+					<h2>FORMACIÓN ACADÉMICA</h2>
 					<ul>
 						<li>2010-2018: <strong>Universidad Tecnologica Nacional</strong></li>
 						<li>2004-2009: <strong>Enet N° 1</strong></li>
@@ -49,12 +53,108 @@
 				</div>
 				
 				<div class="col-4">
-					<h2>Experiencia laboral </h2>
+					<h2>EXPERIENCIA LABORAL </h2>
 					<ul>
 						<li>2020-2022: <strong>En el pony pisador</strong></li>
 						<li>2023-2023: <strong>Profesor en howarts</strong></li>
 					</ul>	
 				</div>
+				<br>
+				<div class="col-4">
+					<h2>SKILLS</h2>
+					<ul class="parali">
+						<li><i class="fab fa-html5"></i>   
+							<div class="row">
+								<p class="col-6"> HTML5:</p>  
+								<div class="col-6">
+									<span class="material-icons md-18">star</span>
+									<span class="material-icons">star</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+								</div>								
+							</div>
+						</li>
+						<li>
+							<div class="row">
+								<p class="col-6"> CSS, BOOTSTRAP:</p>  
+								<div class="col-6">
+									<span class="material-icons md-18">star</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+								</div>								
+							</div> 
+						</li>
+						<li> 
+							  <div class="row">
+								<p class="col-6">JAVASCRIPT:</p>  
+								<div class="col-6">
+									<span class="material-icons md-18">star</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+								</div>								
+							</div> 
+						</li>
+						<li> 
+							<div class="row">
+								<p class="col-6">GIT:</p>  
+								<div class="col-6">
+									<span class="material-icons md-18">star</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+								</div>								
+							</div>
+						</li>
+					</ul>	
+				</div>
+				
+				<div class="col-4">
+					<h2>HOBBIES </h2>
+					<ul>
+						<li>Viajar</li>
+						<li>Aprender idiomas</li>
+						<li>Andar en bicicleta</li>
+						<li>Tocar guitarra</li>
+					</ul>	
+				</div>
+
+				<div class="col-4">
+					<h2>IDIOMAS</h2>
+					<ul>
+						<li>
+							<div class="row">
+								<p class="col-6">Español:</p>
+								<div class="col-6">	
+									<span class="material-icons md-18">star</span>
+									<span class="material-icons">star</span>
+									<span class="material-icons">star</span>
+									<span class="material-icons">star</span>
+									<span class="material-icons">star</span>
+								</div>
+							</div>							
+						</li>
+						<li>
+							<div class="row">
+								<p class="col-6">Inglés:</p>
+								<div class="col-6">
+									<span class="material-icons md-18">star</span>
+									<span class="material-icons">star</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span>
+									<span class="material-icons">star_border</span> 
+								</div>
+							</div>
+						</li>
+					</ul>	
+				</div>
+				
+				
 			</div>
 				
 		</div>
@@ -62,14 +162,12 @@
 			var dato = datos();
 			function datos()
 			{
-				$.ajax({
-				  url: 'https://randomuser.me/api/',
-				  dataType: 'json',
-				  success: function(data) {
-				    console.log(data);
-					console.log(data.results[0].name.first);				   
-				    mostrar(data);
-				  }
+				const url = 'https://randomuser.me/api/';
+				fetch(url)
+				.then(data => {return data.json()})
+				.then(res => {
+					console.log(res);
+					mostrar(res);
 				});					
 			};
 			function mostrar(data) {
@@ -84,6 +182,9 @@
 			    //document.getElementById("imag").innerHTML = data.results[0].picture.large;
 			    var imag = data.results[0].picture.large;
 			    console.log(imag);
+				var imagen = document.createElement('img');
+			    imagen.src = data.results[0].picture.large;
+			    document.getElementById("imagen").appendChild(imagen);
 			}
 		</script>
 	</body>

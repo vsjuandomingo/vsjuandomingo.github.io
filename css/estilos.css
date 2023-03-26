@@ -1,9 +1,21 @@
+h2{
+	padding: 15px;
+}
+
+.container{
+	background-color: #3c637b;
+}
+
+#imagen{
+	padding: 3%;
+}
+
 body {
-    background-color: black;
+    background-color: #3c637b;
   }
 
 h1,h2,li,strong {
-	color: orange;
+	color: #cce1bd !important;
 	margin-left: 20px;
 	font-family: 'Shantell Sans', cursive;
 }
@@ -19,4 +31,16 @@ h1
 }
 *{
 	font-family: 'Shantell Sans', cursive;
+	font-size: 20px;
+}
+
+ul {
+  list-style-type: square;
+}
+
+span.material-icons{
+	font-size: 18px!important;
+}
+.parali{
+	font-size: 20px;
 }
